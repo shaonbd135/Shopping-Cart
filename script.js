@@ -1,4 +1,5 @@
 
+
 //Plus button Event Lisener
 
 var plusButton = document.getElementById("plus-button");
@@ -78,6 +79,38 @@ minusButton2.addEventListener('click',function(){
     totalCalculation();
 })
 
+
+//function for cross Button
+
+
+var cross1 = document.getElementById("cross1");
+
+cross1.addEventListener('click',function(){
+
+    document.getElementById('firstProduct').style.display="none";
+
+    document.getElementById('price').innerText = 0 ;
+    subtotalCalculation();
+    totalCalculation();
+
+
+
+})
+
+var cross2 = document.getElementById("cross2");
+
+cross2.addEventListener('click',function(){
+
+    document.getElementById('secondProduct').style.display="none";
+
+    document.getElementById('price2').innerText = 0 ;
+    subtotalCalculation();
+    totalCalculation();
+
+
+
+})
+
 //Function for increasing item number
 
 function itemsNumberIncrease(id){
@@ -154,6 +187,8 @@ function totalCalculation(){
 
 
 }
+
+
 
 
 
