@@ -6,7 +6,7 @@ var plusButton = document.getElementById("plus-button");
 plusButton.addEventListener('click',function(){
 
     itemsNumberIncrease("item-number");
-    totalItemsAmount("price","item-number")
+    totalItemsAmount("price","item-number",1219)
     subtotalCalculation();
     totalCalculation();
     
@@ -32,7 +32,7 @@ minusButton.addEventListener('click',function(){
         alert("You Have Enter Wrong Quantity");     
     }  
     
-    totalItemsAmount("price","item-number")
+    totalItemsAmount("price","item-number",1219)
     subtotalCalculation();
     totalCalculation();
 })
@@ -47,7 +47,7 @@ var plusButton2 = document.getElementById("plus-button2");
 plusButton2.addEventListener('click',function(){
 
     itemsNumberIncrease("item-number2");
-    totalItemsAmount("price2","item-number2")
+    totalItemsAmount("price2","item-number2",59)
     subtotalCalculation();
     totalCalculation();
     
@@ -73,7 +73,7 @@ minusButton2.addEventListener('click',function(){
         alert("You Have Enter Wrong Quantity");     
     }  
     
-    totalItemsAmount("price2","item-number2")
+    totalItemsAmount("price2","item-number2",59)
     subtotalCalculation();
     totalCalculation();
 })
@@ -102,7 +102,7 @@ function itemsNumberDecrease(id){
 
 //Function for item numbers with total value per product increase
 
-function totalItemsAmount(id,itemNumberId){
+function totalItemsAmount(id,itemNumberId,soloPrice){
 
     var itemNumber = document.getElementById(itemNumberId).value;
 
@@ -111,7 +111,7 @@ function totalItemsAmount(id,itemNumberId){
     var price = document.getElementById(id).innerText;
 
     var priceAmount = parseFloat(price);
-    var basePrice = itemsNumber * 1219 ;
+    var basePrice = itemsNumber * soloPrice ;
 
     document.getElementById(id).innerText = basePrice;
 }
