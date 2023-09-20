@@ -7,6 +7,8 @@ plusButton.addEventListener('click',function(){
 
     itemsNumberIncrease("item-number");
     totalItemsAmount("price","item-number")
+    subtotalCalculation();
+    totalCalculation();
     
 })
 
@@ -31,8 +33,50 @@ minusButton.addEventListener('click',function(){
     }  
     
     totalItemsAmount("price","item-number")
+    subtotalCalculation();
+    totalCalculation();
 })
 
+
+
+
+//Plus button Event Lisener 2
+
+var plusButton2 = document.getElementById("plus-button2");
+
+plusButton2.addEventListener('click',function(){
+
+    itemsNumberIncrease("item-number2");
+    totalItemsAmount("price2","item-number2")
+    subtotalCalculation();
+    totalCalculation();
+    
+})
+
+//Minus button Event Lisener 2
+
+var minusButton2 = document.getElementById("minus-button2");
+
+minusButton2.addEventListener('click',function(){
+
+    var itemNumber = document.getElementById("item-number2").value;
+
+    var itemsNumber = parseFloat(itemNumber); 
+
+    if(itemsNumber==0){
+        alert("Item quantity is already 0 ")
+    }
+    else if(itemsNumber>0) {
+        itemsNumberDecrease("item-number2");
+    }
+    else{
+        alert("You Have Enter Wrong Quantity");     
+    }  
+    
+    totalItemsAmount("price2","item-number2")
+    subtotalCalculation();
+    totalCalculation();
+})
 
 //Function for increasing item number
 
@@ -73,40 +117,43 @@ function totalItemsAmount(id,itemNumberId){
 }
 
 
-//Plus button Event Lisener 2
 
-var plusButton2 = document.getElementById("plus-button2");
+//function for subtotal 
 
-plusButton2.addEventListener('click',function(){
+function subtotalCalculation(){
 
-    itemsNumberIncrease("item-number2");
-    totalItemsAmount("price2","item-number2")
-    
-})
+    var price = document.getElementById("price").innerText;
+    var priceAmount = parseFloat(price);
 
-//Minus button Event Lisener 2
+    var price2 = document.getElementById("price2").innerText;
+    var priceAmount2 = parseFloat(price2);
 
-var minusButton2 = document.getElementById("minus-button2");
+    var newSubtotal = priceAmount+priceAmount2;
+ 
+    document.getElementById("subtotal").innerText = newSubtotal;
 
-minusButton2.addEventListener('click',function(){
+}
 
-    var itemNumber = document.getElementById("item-number2").value;
+function totalCalculation(){
 
-    var itemsNumber = parseFloat(itemNumber); 
+    var total = document.getElementById("total").innerText;
 
-    if(itemsNumber==0){
-        alert("Item quantity is already 0 ")
-    }
-    else if(itemsNumber>0) {
-        itemsNumberDecrease("item-number2");
-    }
-    else{
-        alert("You Have Enter Wrong Quantity");     
-    }  
-    
-    totalItemsAmount("price2","item-number2")
-})
+    var totalAmount = parseFloat(total);
 
+    var tax = document.getElementById("tax").innerText;
+
+    var taxAmount = parseFloat(tax);
+
+    var subtotal = document.getElementById("subtotal").innerText ;
+
+    var subtotalAmount = parseFloat(subtotal);
+
+    var totalAmountCalculation = taxAmount + subtotalAmount ;
+
+    document.getElementById("total").innerText = totalAmountCalculation;
+
+
+}
 
 
 
